@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <title>Výpočet obsahu lichoběžníku</title>
+  </head>
+  <body>
+    <h1>Výpočet obsahu lichoběžníku</h1>
+    <form>
+      <label for="stranaA">Délka strany a:</label>
+      <input type="number" id="stranaA" name="stranaA"><br>
+
+      <label for="stranaB">Délka strany b:</label>
+      <input type="number" id="stranaB" name="stranaB"><br>
+
+      <label for="vyska">Výška lichoběžníku:</label>
+      <input type="number" id="vyska" name="vyska"><br>
+
+      <button type="button" onclick="vypocet()">Vypočítat</button>
+    </form>
+
+    <div id="vysledek"></div>
+
+    <script>
+      function vypocet() {
+        var stranaA = parseInt(document.getElementById("stranaA").value);
+        var stranaB = parseInt(document.getElementById("stranaB").value);
+        var vyska = parseInt(document.getElementById("vyska").value);
+
+        var obsah = vypocetObsahu(stranaA, stranaB, vyska);
+
+        document.getElementById("vysledek").innerHTML = "Obsah lichoběžníku je: " + obsah;
+      }
+
+      function vypocetObsahu(a, b, v) {
+        var obsah = ((a + b) * v) / 2;
+        return obsah;
+      }
+    </script>
+     <a href="vysvetleni.html" target="_blank">Vysvětlení výpočtu</a></td>
+     /<td><img src="lichobeznik1.jpg" alt="Rovnoběžník"></td></tr>
+  </body>
 </html>
