@@ -7,15 +7,20 @@
     <h1>Výpočet obsahu lichoběžníku</h1>
     <form>
       <label for="stranaA">Délka strany a:</label>
-      <input type="number" id="stranaA" name="stranaA"><br>
+      <input type="number" id="stranaA" name="stranaA"><br><br>
 
       <label for="stranaB">Délka strany b:</label>
-      <input type="number" id="stranaB" name="stranaB"><br>
+      <input type="number" id="stranaB" name="stranaB"><br><br>
 
       <label for="vyska">Výška lichoběžníku:</label>
       <input type="number" id="vyska" name="vyska"><br>
 
-      <button type="button" onclick="vypocet()">Vypočítat</button>
+      <button type="button" onclick="vypocet()">Vypočítat</button> <br>
+
+      <label for="kontrola">Váš výsledek:</label>
+      <input type="number" id="kontrola" name="kontrola">
+
+      <button type="button" onclick="kontrolaVysledku()">Zkontrolovat</button>
     </form>
 
     <div id="vysledek"></div>
@@ -28,15 +33,27 @@
 
         var obsah = vypocetObsahu(stranaA, stranaB, vyska);
 
-        document.getElementById("vysledek").innerHTML = "Obsah lichoběžníku je: " + obsah;
+        document.getElementById("vysledek").innerHTML = "Obsah lichoběžníku je: " + obsah + " cm²";
       }
 
       function vypocetObsahu(a, b, v) {
         var obsah = ((a + b) * v) / 2;
         return obsah;
       }
+
+      function kontrolaVysledku() {
+        var spravnyVysledek = vypocetObsahu(parseInt(document.getElementById("stranaA").value), parseInt(document.getElementById("stranaB").value), parseInt(document.getElementById("vyska").value));
+        var zadanyVysledek = parseInt(document.getElementById("kontrola").value);
+
+        if (spravnyVysledek === zadanyVysledek) {
+          alert("Váš výsledek je správný!");
+        } else {
+          alert("Váš výsledek je špatný. Zkuste to znovu.");
+        }
+      }
     </script>
-     <a href="vysvetleni.html" target="_blank">Vysvětlení výpočtu</a></td>
-     /<td><img src="lichobeznik1.jpg" alt="Rovnoběžník"></td></tr>
+
+    <br><br>
+    <a href="vysvetleni.html" target="_blank">Vysvětlení výpočtu</a> / <img src="Návrh bez názvu.png" alt="Rovnoběžník">
   </body>
 </html>
